@@ -20,7 +20,7 @@ app.use(ErrorMiddleware);
 
 app
   .get("/users", getAllUsers)
-  .post("/users", createUser)
+  .post("/newUser", createUser)
   .get("/user/:id", getUser)
   .put("/user/:id", updateUser)
   .delete("/user/:id", deleteUser)
