@@ -62,7 +62,7 @@ DATABASE_HOST=<URI_MONGO>
 ```
 
 deno run -A --unstable ./server.ts
--A => permission to --allow-all
+-A => permission for --allow-all
 ```
 
 # Tags
