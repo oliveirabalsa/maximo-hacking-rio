@@ -14,6 +14,8 @@ import {
   createTask,
 } from "./controllers/Tasks/index.ts";
 
+import { create } from "./controllers/stores/storeController.ts";
+
 const app = new Application();
 
 app.use(ErrorMiddleware);
@@ -26,6 +28,7 @@ app
   .delete("/user/:id", deleteUser)
   .get("/tasks", getTasks)
   .post("/newTask", createTask)
+  .post("stores", create)
   .start({ port: 4000 });
 
 console.log(`server listening on http://localhost:4000`);
