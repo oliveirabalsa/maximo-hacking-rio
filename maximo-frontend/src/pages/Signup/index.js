@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { View, KeyboardAvoidingView, Platform, Image, Text, TextInput, 
-TouchableOpacity, Keyboard, TouchableWithoutFeedback } from 'react-native';
+TouchableOpacity, Keyboard, TouchableWithoutFeedback, ViewBase } from 'react-native';
+import { Snackbar } from 'react-native-paper';
 
 import api from '../../services/api';
 
@@ -13,6 +14,7 @@ export default function Signup({navigation}) {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
+  const [visible, setVisible] = useState(false)
 
   async function handleRegister() {
 
@@ -21,13 +23,15 @@ export default function Signup({navigation}) {
       email,
       senha,
     };
+     
 
     try {
       const response = await api.post('users', data);
+      setTimeout(() => {
+        navigation.navigate('Signin');
+      }, 1500)
+      setVisible(true);
 
-      alert(`Cadastrado com sucesso ${data.name}!`);
-
-      navigation.navigate('Signin');
     } catch (err) {
       alert('Erro no cadastro, tente novamente.')
     }
@@ -42,9 +46,16 @@ export default function Signup({navigation}) {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <KeyboardAvoidingView enabled={Platform.OS === 'ios'} behavior="padding" style={styles.container}>
+      <View style={styles.snackbar}>
+      <Snackbar style={styles.snackbar}
+          visible={visible}
+        >
+          Cadastrado com sucesso!
+        </Snackbar>
+        </View>
+
       <Image source={logo} />
       <Text style={styles.title}>Faça seu Cadastro</Text>
-
       <View style={styles.form}>
       <TextInput 
           style={styles.input}

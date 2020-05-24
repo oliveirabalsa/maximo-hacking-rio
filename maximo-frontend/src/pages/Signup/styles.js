@@ -50,12 +50,21 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: 'center',
     marginTop: 15,
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   detailsButtonText: {
     color: '#666699',
     fontSize: 20,
     padding: 4
+  },
+  snackbar: {
+    backgroundColor: 'green',
+    position: 'absolute',
+    top: 20,
+    right: 0,
+    width: 300,
+    textAlign: 'center',
+    margin: 0
   }
 });

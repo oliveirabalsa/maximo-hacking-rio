@@ -3,9 +3,6 @@ import { ErrorMiddleware } from "./utils/handleError.ts";
 import {
   loginUser
 } from './controllers/Session/login.ts';
-import {
-  loginUser,
-} from "./controllers/Session/login.ts";
 
 import {
   getAllUsers,
