@@ -34,6 +34,7 @@ export const getAll: HandlerFunc = async (data: Context) => {
   try {
     const stores: Istore[] = await Store.find();
     return data.json(stores);
+
   } catch (error) {
     throw new ErrorHandler(error.message, error.status || 500);
   }
@@ -43,6 +44,7 @@ export const getById: HandlerFunc = async (data: Context) => {
   try {
     const store = await Store.findOne();
     return data.json(store);
+
   } catch (error) {
     throw new ErrorHandler(error.message, error.status || 500);
   }
@@ -53,6 +55,7 @@ export const update: HandlerFunc = async (data: Context) => {
     const { id } = data.params as { id: string };
     const store = await (data.body()) as {};
     return data.json(store);
+
   } catch (error) {
     throw new ErrorHandler(error.message, error.status || 500);
   }
@@ -63,6 +66,7 @@ export const remove: HandlerFunc = async (data: Context) => {
     const { id } = data.params as { id: string };
     const store = await Store.findOne();
     return data.json(store);
+    
   } catch (error) {
     throw new ErrorHandler(error.message, error.status || 500);
   }
