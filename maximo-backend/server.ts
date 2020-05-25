@@ -1,8 +1,8 @@
 import { Application } from "https://deno.land/x/abc@v1.0.0-rc2/mod.ts";
 import { ErrorMiddleware } from "./utils/handleError.ts";
 import {
-  loginUser
-} from './controllers/Session/login.ts';
+  loginUser,
+} from "./controllers/Session/login.ts";
 
 import {
   getAllUsers,
@@ -21,6 +21,8 @@ import {
   create,
   getAll,
   getById,
+  update,
+  remove
 } from "./controllers/stores/storeController.ts";
 
 const app = new Application();
@@ -38,8 +40,9 @@ app
   .post("stores", create)
   .get("/stores", getAll)
   .get("/stores/:id", getById)
+  .put("stores/:id", update)
+  .delete("stores/:id", remove)
   .post("/login", loginUser)
-
   .start({ port: 4000 });
 
 console.log(`server listening on http://localhost:4000`);
