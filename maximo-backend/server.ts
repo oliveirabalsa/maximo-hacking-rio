@@ -18,7 +18,11 @@ import {
   createTask,
 } from "./controllers/Tasks/index.ts";
 
-import { create, getAll } from "./controllers/stores/storeController.ts";
+import {
+  create,
+  getAll,
+  getById,
+} from "./controllers/stores/storeController.ts";
 
 const app = new Application();
 
@@ -34,6 +38,7 @@ app
   .post("/newTask", createTask)
   .post("stores", create)
   .get("/stores", getAll)
+  .get("/stores/:id", getById)
   .post("/login", loginUser)
   .start({ port: 4000 });
 
