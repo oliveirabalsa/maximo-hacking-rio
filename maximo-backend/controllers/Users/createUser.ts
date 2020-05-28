@@ -24,7 +24,7 @@ export const createUser: HandlerFunc = async (data: Context) => {
     }
     let { name, lastName, email, password } = body;
 
-    let passwordHash = password as string
+    let passwordHash = password as string;
 
     password = await bcrypt.hash(passwordHash, salt);
 

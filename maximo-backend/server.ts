@@ -13,9 +13,12 @@ import {
 } from "./controllers/Users/index.ts";
 
 import {
-  getTasks,
-  createTask,
-} from "./controllers/Tasks/index.ts";
+  getOrders,
+  createOrders,
+  deleteOrders,
+  updateOrders,
+  getOrder
+} from "./controllers/Orders/index.ts";
 
 import { create, getAll } from "./controllers/stores/storeController.ts";
 
@@ -29,8 +32,11 @@ app
   .get("/user/:id", getUser)
   .put("/user/:id", updateUser)
   .delete("/user/:id", deleteUser)
-  .get("/tasks", getTasks)
-  .post("/newTask", createTask)
+  .get("/orders", getOrders)
+  .post("/newOrder", createOrders)
+  .delete("/order/:id", deleteOrders)
+  .put("/order/:id", updateOrders)
+  .get("/order/:id", getOrder)
   .post("stores", create)
   .get("/stores", getAll)
   .post("/login", loginUser)
