@@ -26,8 +26,16 @@ import {
   getAll,
   getById,
   update,
-  remove
-} from "./controllers/stores/storeController.ts";
+  remove,
+} from "./controllers/Stores/index.ts";
+
+import {
+  createMenu,
+  getAllMenu,
+  getByIdMenu,
+  updateMenu,
+  deleteMenu,
+} from "./controllers/Menu/index.ts";
 
 const app = new Application();
 app.post("/login", loginUser)
@@ -49,8 +57,14 @@ app
   .post("stores", create)
   .get("/stores", getAll)
   .get("/stores/:id", getById)
-  .put("stores/:id", update)
-  .delete("stores/:id", remove)
+  .put("/stores/:id", update)
+  .delete("/stores/:id", remove)
+  .post("/menus", createMenu)
+  .get("/menus", getAllMenu)
+  .get("/menus/:id", getByIdMenu)
+  .put("/menus/:id", updateMenu)
+  .delete("/menus/:id", deleteMenu)
+  .post("/login", loginUser)
   .start({ port: 4000 });
 
 console.log(`server listening on http://localhost:4000`);

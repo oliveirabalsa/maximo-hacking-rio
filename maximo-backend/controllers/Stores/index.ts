@@ -1,0 +1,5 @@
+export { create } from "./createStores.ts"
+export { getAll } from "./getAllStores.ts"
+export { getById } from "./getByIdStores.ts"
+export { update } from "./updateStores.ts"
+export { remove } from "./deleteStores.ts"
