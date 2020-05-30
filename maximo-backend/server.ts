@@ -1,5 +1,6 @@
 import { Application } from "https://deno.land/x/abc@v1.0.0-rc2/mod.ts";
 import { ErrorMiddleware } from "./utils/handleError.ts";
+import { AuthController } from './controllers/Auth/authController.ts'
 import {
   loginUser,
 } from "./controllers/Session/login.ts";
@@ -31,8 +32,10 @@ import {
 import { createMenu, getAllMenu } from "./controllers/menu/index.ts";
 
 const app = new Application();
+app.post("/login", loginUser)
 
 app.use(ErrorMiddleware);
+app.use(AuthController);
 
 app
   .get("/users", getAllUsers)
@@ -44,7 +47,7 @@ app
   .post("/newOrder", createOrders)
   .delete("/order/:id", deleteOrders)
   .put("/order/:id", updateOrders)
-  .get("/order/:id", getOrder)
+  .get("/order", getOrder)
   .post("stores", create)
   .get("/stores", getAll)
   .get("/stores/:id", getById)
