@@ -9,7 +9,7 @@ import { ErrorHandler } from "../../utils/handleError.ts";
 
 const database = connectionDatabase.findDatabase;
 const user = database.collection("users");
-const salt = await bcrypt.genSalt(8);
+
 
 export const createUser: HandlerFunc = async (data: Context) => {
   try {
@@ -26,7 +26,7 @@ export const createUser: HandlerFunc = async (data: Context) => {
 
     let passwordHash = password as string;
 
-    password = await bcrypt.hash(passwordHash, salt);
+    password = await bcrypt.hashSync(passwordHash);
 
     await user.insertOne({
       name,

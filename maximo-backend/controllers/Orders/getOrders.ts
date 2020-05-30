@@ -33,7 +33,8 @@ export const getOrders: HandlerFunc = async (data: Context) => {
                 postalCode,
                 city,
                 state,
-                complement
+                complement,
+                created_at
               },
             } = item;
 
@@ -54,7 +55,8 @@ export const getOrders: HandlerFunc = async (data: Context) => {
                 postalCode,
                 city,
                 state,
-                complement
+                complement,
+                created_at
               },
             };
           })
