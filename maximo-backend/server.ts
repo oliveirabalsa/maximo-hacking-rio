@@ -26,7 +26,7 @@ import {
   getById,
   update,
   remove
-} from "./controllers/stores/storeController.ts";
+} from "./controllers/stores/index.ts";
 
 const app = new Application();
 
