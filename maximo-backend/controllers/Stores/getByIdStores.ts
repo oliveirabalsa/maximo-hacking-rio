@@ -19,7 +19,7 @@ import {
         return data.json({ nameStore, typeStore, whatsapp });
       }
   
-      throw new ErrorHandler("Lojá não encontrada", 404);
+      throw new ErrorHandler("Lojá não encontrada", 400);
     } catch (error) {
       throw new ErrorHandler(error.message, error.status || 500);
     }

@@ -27,9 +27,9 @@ import {
   getById,
   update,
   remove,
-} from "./controllers/stores/index.ts";
+} from "./controllers/Stores/index.ts";
 
-import { createMenu, getAllMenu } from "./controllers/menu/index.ts";
+import { createMenu, getAllMenu, getByIdMenu } from "./controllers/Menu/index.ts";
 
 const app = new Application();
 app.post("/login", loginUser)
@@ -55,6 +55,7 @@ app
   .delete("/stores/:id", remove)
   .post("/menus", createMenu)
   .get("/menus", getAllMenu)
+  .get("/menus/:id", getByIdMenu)
   .post("/login", loginUser)
   .start({ port: 4000 });
 
