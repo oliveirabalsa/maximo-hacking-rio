@@ -6,6 +6,6 @@ export default interface IMenu {
   name: string;
   description: string;
   variable: Array<IMenu>;
-  price: string;
+  price: number;
   timestamps: true;
 }

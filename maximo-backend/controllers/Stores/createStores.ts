@@ -10,9 +10,7 @@ import {
   
   export const create: HandlerFunc = async (data: Context) => {
     try {
-      const body = await data.body();
-  
-      const { nameStore, typeStore, whatsapp } = body;
+      const { nameStore, typeStore, whatsapp } = await data.body();
   
       const response = await Store.insertOne({
         nameStore,

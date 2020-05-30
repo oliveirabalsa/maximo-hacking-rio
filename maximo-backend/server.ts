@@ -29,7 +29,13 @@ import {
   remove,
 } from "./controllers/Stores/index.ts";
 
-import { createMenu, getAllMenu, getByIdMenu } from "./controllers/Menu/index.ts";
+import {
+  createMenu,
+  getAllMenu,
+  getByIdMenu,
+  updateMenu,
+  deleteMenu,
+} from "./controllers/Menu/index.ts";
 
 const app = new Application();
 app.post("/login", loginUser)
@@ -56,6 +62,8 @@ app
   .post("/menus", createMenu)
   .get("/menus", getAllMenu)
   .get("/menus/:id", getByIdMenu)
+  .put("/menus/:id", updateMenu)
+  .delete("/menus/:id", deleteMenu)
   .post("/login", loginUser)
   .start({ port: 4000 });
 
