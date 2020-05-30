@@ -17,7 +17,7 @@ import {
   createOrders,
   deleteOrders,
   updateOrders,
-  getOrder
+  getOrder,
 } from "./controllers/Orders/index.ts";
 
 import {
@@ -25,8 +25,10 @@ import {
   getAll,
   getById,
   update,
-  remove
+  remove,
 } from "./controllers/stores/index.ts";
+
+import { createMenu, getAllMenu } from "./controllers/menu/index.ts";
 
 const app = new Application();
 
@@ -46,8 +48,10 @@ app
   .post("stores", create)
   .get("/stores", getAll)
   .get("/stores/:id", getById)
-  .put("stores/:id", update)
-  .delete("stores/:id", remove)
+  .put("/stores/:id", update)
+  .delete("/stores/:id", remove)
+  .post("/menus", createMenu)
+  .get("/menus", getAllMenu)
   .post("/login", loginUser)
   .start({ port: 4000 });
 
